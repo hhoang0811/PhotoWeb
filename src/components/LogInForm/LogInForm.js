@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import * as yup from 'yup'
-import './LogInForm.css';
+import './LogInForm.scss';
 
 
 function LogInForm() {
