@@ -23,8 +23,9 @@ function App() {
 
         };
         const response = await productApi.getAll(params);
-        console.log(response);
+        // console.log(response);
         setProductList(response.data);
+        console.log(productList);
       } catch (error) {
         console.log('Failed to fetch product list: ', error);
       }
