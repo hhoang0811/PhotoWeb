@@ -1,21 +1,24 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from '../../components/NotFound';
-import AddEditPage from './pages/AddEdit';
-import MainPage from './pages/Main';
 
 Photo.propTypes = {};
 
+const MainPage = React.lazy(() => import('../../features/photos/pages/Main'));
+const AddEditPage = React.lazy(() => import('../../features/photos/pages/AddEdit'));
+
 function Photo(props) {
 
+
   return (
-        <Routes>
-          <Route path="" element={<MainPage />}>
-            <Route path="photos" element={<AddEditPage />} />
-            <Route path="/:photoId" element={<AddEditPage />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+    <Suspense fallback={<h4 style={{marginTop: 400, textAlign: 'center'}}>Loading...</h4>}>
+      <Routes>
+        <Route index element={<MainPage />} />
+        <Route path=":photoId" element={<AddEditPage />} />
+        <Route path="add" element={<AddEditPage />} />
+        <Route path='*' element={<NotFound />}/>
+      </Routes>
+    </Suspense>
   );
 }
 

@@ -1,6 +1,13 @@
 .photo-edit {
+  &__form {
+    margin: 2rem auto 1rem auto;
+    max-width: 25rem;
+  }
+
+  @media screen and (max-width: 420px) {
     &__form {
-      margin: 2rem auto 1rem auto;
-      max-width: 25rem;
+      max-width: 20rem;
     }
   }
+
+}

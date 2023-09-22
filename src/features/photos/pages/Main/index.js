@@ -1,12 +1,13 @@
 import React from "react";
 import { Container } from "reactstrap";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import Images from '../../../../constant/Images';
 import Banner from "../../../../components/Banner/Banner";
 import PhotoList from "../../components/PhotoList";
 import { removePhoto } from '../../photoSlice'
+import './Mainpage.scss'
 
 function MainPage(props) {
 
@@ -14,16 +15,16 @@ function MainPage(props) {
     const navigate = useNavigate()
 
     const photos = useSelector(state => state.photos)
-    console.log('list of photo: ', photos);
+    // console.log('list of photo: ', photos);
 
     const handlePhotoEditClick = (photo) => {
-        console.log('Edit: ', photo);
-        const editPhotoUrl = `/${photo.id}`;
+        // console.log('Edit: ', photo);
+        const editPhotoUrl = `/photos/${photo.id}`;
         navigate(editPhotoUrl);
       }
     
     const handlePhotoRemoveClick = (photo) => {
-        console.log('Remove: ', photo);
+        // console.log('Remove: ', photo);
         const removePhotoId = photo.id;
         const action = removePhoto(removePhotoId);
         dispatch(action);
@@ -36,9 +37,7 @@ function MainPage(props) {
                 backgroundUrl={Images.PINK_BG}
             />
 
-            <Container className="text-center">
-                <NavLink to="photos">Add new photo</NavLink>
-
+            <Container className="text-center photoList">
                 <PhotoList 
                     photoList={photos}
                     onPhotoEditClick={handlePhotoEditClick}

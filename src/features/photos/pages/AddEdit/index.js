@@ -33,7 +33,6 @@ function AddEditPages(props) {
     const handleSubmit = (values) => {
 
         return new Promise(() => {
-            console.log(values)
 
             setTimeout(() => {
                 if(isAddMode){
@@ -42,14 +41,13 @@ function AddEditPages(props) {
                         id: randomNumber(10000, 99999)
                     }
                     const action = addPhoto(newPhoto)
-                    console.log({action});
                     dispatch(action);
                 } else {
                     const action = updatePhoto(values);
                     dispatch(action);
                 }
 
-                navigate('/');
+                navigate('/photos');
             }, 3000)
         })
     }

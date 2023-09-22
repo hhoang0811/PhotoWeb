@@ -24,8 +24,10 @@ function RandomPhotoField(props) {
     const showError = errors[name] && touched[name];
 
   const handleImageUrlChange = (newImageUrl) => {
+    // console.log(form.setFieldValue(name));
     form.setFieldValue(name, newImageUrl)
-    // console.log(newImageUrl, name);
+    // console.log(form);
+    // console.log(field);
   }
 
   return (

@@ -1,33 +1,26 @@
 import { NavLink } from 'react-router-dom';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Col } from 'reactstrap';
 import './Header.scss'
 
 function Header() {
     return (  
         <header className='header'>
-            <Container>
-                <Row className='justify-content-between'>
+            <Container className='wrapper'>
                     <Col xs='auto'>
-                        <a 
-                            className='header__link header__title'
-                            href="https://www.youtube.com/"
-                            target='_blank'
-                            rel='noopener noreferrer'
+                        <NavLink
+                            end
+                            to="/photos"
+                            className={({isActive}) => isActive ? "header__link--active" : "header__link"}
                         >
-                        WebSite
-                        </a>
+                            PhotoWeb
+                        </NavLink>
                     </Col>
-
+                    
                     <Col xs='auto'>
-                                <NavLink
-                                    to="/"
-                                    className={({isActive}) => isActive ? "header__link--active" : "header__link"}
-                                >
-                                Redux Project
-                                </NavLink>
+                        <div className="navLink">
+                            <NavLink to="/photos/add">Add photo</NavLink>
+                        </div>
                     </Col>
-                </Row>
-
             </Container>
         </header>
     );

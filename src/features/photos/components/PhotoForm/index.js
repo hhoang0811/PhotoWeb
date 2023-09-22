@@ -27,9 +27,9 @@ function PhotoForm(props) {
             validationSchema={validationSchema}
             onSubmit={props.onSubmit}
         >
-        {formikform => {
+        {formikProps => {
 
-            const { isSubmitting } = formikform
+            const { isSubmitting } = formikProps
             return (
                 <Form>
                         <FastField 

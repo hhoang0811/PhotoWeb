@@ -21,7 +21,7 @@ function PhotoList(props) {
   return (
     <Row>
       {photoList.map(photo => (
-        <Col key={photo.title} xs="12" md="6" lg="3">
+        <Col key={photo.title} xs="12" sm="6" md="4" lg="3">
           <PhotoCard
             photo={photo}
             onEditClick={onPhotoEditClick}
